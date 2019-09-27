@@ -2,6 +2,11 @@
 
 This library adds support of superscript and subscript (`<sup>` and `<sub>` HTML tags) to [league/commonmark](https://github.com/thephpleague/commonmark).
 
+## Versions compatibility
+
+* 1.x is compatible with league/commonmark 0.17.x and 0.18.x
+* 2.x will be compatible with league/commonmark 1.x
+
 ## Installation
 
 This project can be installed via [Composer]:
