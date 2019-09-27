@@ -10,31 +10,27 @@
 
 namespace Ows\CommonMark;
 
+use League\CommonMark\ConfigurableEnvironmentInterface;
+use League\CommonMark\Extension\ExtensionInterface;
+use Ows\CommonMark\Inline\Element\Sub;
 use Ows\CommonMark\Inline\Parser\SubParser;
 use Ows\CommonMark\Inline\Renderer\SubRenderer;
-use League\CommonMark\Extension\Extension;
 
-class SubExtension extends Extension
+final class SubExtension implements ExtensionInterface
 {
 
   /**
    * {@inheritdoc}
    */
-  public function getInlineParsers()
-  {
-    return [
-      new SubParser(),
-    ];
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getInlineRenderers()
-  {
-    return [
-      'Ows\CommonMark\Inline\Element\Sub' => new SubRenderer(),
-    ];
+  public function register(ConfigurableEnvironmentInterface $environment) {
+    $environment
+      ->addInlineParser(new SubParser())
+      ->addInlineRenderer(
+        Sub::class,
+        new SubRenderer()
+      )
+    ;
   }
 
 }
+
