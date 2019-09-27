@@ -14,5 +14,13 @@
     "psr-4": {
       "Ows\\CommonMark\\": "src/"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Ows\\CommonMark\\Tests\\Functional\\": "tests/functional"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.5"
   }
 }
