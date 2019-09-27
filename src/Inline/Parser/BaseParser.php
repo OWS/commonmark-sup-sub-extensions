@@ -6,10 +6,10 @@
 
 namespace Ows\CommonMark\Inline\Parser;
 
-use League\CommonMark\Inline\Parser\AbstractInlineParser;
 use League\CommonMark\InlineParserContext;
+use League\CommonMark\Inline\Parser\InlineParserInterface;
 
-abstract class BaseParser extends AbstractInlineParser
+class BaseParser implements InlineParserInterface
 {
 
   /*
@@ -25,7 +25,7 @@ abstract class BaseParser extends AbstractInlineParser
   /**
    * {@inheritdoc}
    */
-  public function getCharacters()
+  public function getCharacters(): array
   {
     return [static::CHARACTER];
   }
@@ -33,7 +33,7 @@ abstract class BaseParser extends AbstractInlineParser
   /**
    * {@inheritdoc}
    */
-  public function parse(InlineParserContext $inlineContext)
+  public function parse(InlineParserContext $inlineContext): bool
   {
     $cursor = $inlineContext->getCursor();
 

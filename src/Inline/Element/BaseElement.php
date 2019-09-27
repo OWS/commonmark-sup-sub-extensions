@@ -6,14 +6,14 @@
 
 namespace Ows\CommonMark\Inline\Element;
 
-use League\CommonMark\Inline\Element\AbstractInlineContainer;
+use League\CommonMark\Inline\Element\AbstractInline;
 use League\CommonMark\Inline\Element\Text;
 
-abstract class BaseElement extends AbstractInlineContainer
+abstract class BaseElement extends AbstractInline
 {
 
   /**
-   * Sup constructor.
+   * Base constructor for sub and sup elements.
    *
    * @param string $text
    *   Text to put in element.
