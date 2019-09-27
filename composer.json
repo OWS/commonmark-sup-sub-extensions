@@ -1,6 +1,6 @@
 {
   "name": "ows/commonmark-sup-sub-extensions",
-  "type": "library",
+  "type": "commonmark-extension",
   "description": "A sup/sub extension for CommonMark PHP implementation",
   "keywords": ["markdown","parser","commonmark"],
   "homepage": "https://github.com/ows/commonmark-sup-sub-extensions",
