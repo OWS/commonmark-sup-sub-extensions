@@ -2,4 +2,5 @@
 /build/
 composer.lock
 /vendor/
+phpstan.neon
 phpunit.xml
