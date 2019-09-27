@@ -6,7 +6,7 @@
   "homepage": "https://github.com/ows/commonmark-sup-sub-extensions",
   "license": "GPL-2.0-or-later",
   "require": {
-    "league/commonmark": "^0.17|^0.18"
+    "league/commonmark": "^1.0"
   },
   "autoload": {
     "psr-4": {
