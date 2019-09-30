@@ -4,8 +4,8 @@ This library adds support of superscript and subscript (`<sup>` and `<sub>` HTML
 
 ## Versions compatibility
 
-* 1.x is compatible with league/commonmark 0.17.x and 0.18.x
-* 2.x will be compatible with league/commonmark 1.x
+* 2.x is compatible with league/commonmark 1.x (*recommended version*)
+* 1.x is compatible with league/commonmark 0.17.x and 0.18.x and will no longer be supported
 
 ## Installation
 
