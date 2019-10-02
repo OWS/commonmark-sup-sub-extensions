@@ -15,11 +15,10 @@ class SupSubTest extends TestCase {
 
   /**
    * Test Sup extension.
+   *
+   * @dataProvider supMarkupProvider
    */
-  public function testSup() {
-    $markdown = '10^2^';
-    $html = '<p>10<sup>2</sup></p>';
-
+  public function testSup($markdown, $html) {
     $environment = Environment::createCommonMarkEnvironment();
     $environment->addExtension(new SupExtension());
     $converter = new CommonMarkConverter([], $environment);
@@ -28,17 +27,34 @@ class SupSubTest extends TestCase {
   }
 
   /**
-   * Test Sub extension.
+   * Provides test data for the sup test.
    */
-  public function testSub() {
-    $markdown = '10~2~';
-    $html = '<p>10<sub>2</sub></p>';
+  public function supMarkupProvider() {
+    return [
+      ['10^2^', '<p>10<sup>2</sup></p>'],
+    ];
+  }
 
+  /**
+   * Test Sub extension.
+   *
+   * @dataProvider subMarkupProvider
+   */
+  public function testSub($markdown, $html) {
     $environment = Environment::createCommonMarkEnvironment();
     $environment->addExtension(new SubExtension());
     $converter = new CommonMarkConverter([], $environment);
 
     $this->assertEquals($html, trim($converter->convertToHtml($markdown)));
+  }
+
+  /**
+   * Provides test data for the sub test.
+   */
+  public function subMarkupProvider() {
+    return [
+      ['10~2~', '<p>10<sub>2</sub></p>'],
+    ];
   }
 
 }
