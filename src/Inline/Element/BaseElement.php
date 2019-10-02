@@ -18,9 +18,11 @@ abstract class BaseElement extends AbstractInline
    * @param string $text
    *   Text to put in element.
    */
-  public function __construct($text)
+  public function __construct($text = NULL)
   {
-    $this->appendChild(new Text($text));
+    if ($text) {
+      $this->appendChild(new Text($text));
+    }
   }
 
 }

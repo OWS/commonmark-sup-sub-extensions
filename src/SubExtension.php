@@ -12,8 +12,8 @@ namespace Ows\CommonMark;
 
 use League\CommonMark\ConfigurableEnvironmentInterface;
 use League\CommonMark\Extension\ExtensionInterface;
+use Ows\CommonMark\Delimiter\Processor\SubDelimiterProcessor;
 use Ows\CommonMark\Inline\Element\Sub;
-use Ows\CommonMark\Inline\Parser\SubParser;
 use Ows\CommonMark\Inline\Renderer\SubRenderer;
 
 final class SubExtension implements ExtensionInterface
@@ -24,7 +24,7 @@ final class SubExtension implements ExtensionInterface
    */
   public function register(ConfigurableEnvironmentInterface $environment) {
     $environment
-      ->addInlineParser(new SubParser())
+      ->addDelimiterProcessor(new SubDelimiterProcessor())
       ->addInlineRenderer(
         Sub::class,
         new SubRenderer()

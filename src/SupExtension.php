@@ -12,8 +12,8 @@ namespace Ows\CommonMark;
 
 use League\CommonMark\ConfigurableEnvironmentInterface;
 use League\CommonMark\Extension\ExtensionInterface;
+use Ows\CommonMark\Delimiter\Processor\SupDelimiterProcessor;
 use Ows\CommonMark\Inline\Element\Sup;
-use Ows\CommonMark\Inline\Parser\SupParser;
 use Ows\CommonMark\Inline\Renderer\SupRenderer;
 
 final class SupExtension implements ExtensionInterface
@@ -24,7 +24,7 @@ final class SupExtension implements ExtensionInterface
    */
   public function register(ConfigurableEnvironmentInterface $environment) {
     $environment
-      ->addInlineParser(new SupParser())
+      ->addDelimiterProcessor(new SupDelimiterProcessor())
       ->addInlineRenderer(
         Sup::class,
         new SupRenderer()
