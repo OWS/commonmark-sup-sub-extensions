@@ -31,7 +31,18 @@ class SupSubTest extends TestCase {
    */
   public function supMarkupProvider() {
     return [
+      // Check standard operation.
       ['10^2^', '<p>10<sup>2</sup></p>'],
+      // Check that escaping works correctly.
+      ['a^b\^c^', '<p>a<sup>b^c</sup></p>'],
+      // Ensure that sup and em can be nested properly.
+      ['*a^b^c*', '<p><em>a<sup>b</sup>c</em></p>'],
+      ['^a*b*^', '<p><sup>a<em>b</em></sup></p>'],
+      // Ensure that sup and links play nicely together.
+      ['^[a](https://example.com)^', '<p><sup><a href="https://example.com">a</a></sup></p>'],
+      ['[a^b^](https://example.com)', '<p><a href="https://example.com">a<sup>b</sup></a></p>'],
+      // Ensure that sup and header can be used together
+      ['# a^b^', '<h1>a<sup>b</sup></h1>'],
     ];
   }
 
