@@ -34,7 +34,7 @@ abstract class BaseRenderer implements InlineRendererInterface
 
     $attrs = [];
     foreach ($inline->getData('attributes', []) as $key => $value) {
-      $attrs[$key] = Xml::escape($value, TRUE);
+      $attrs[$key] = Xml::escape($value);
     }
 
     return new HtmlElement(static::TAG, $attrs, $htmlRenderer->renderInlines($inline->children()));
