@@ -10,12 +10,13 @@
   },
   "autoload": {
     "psr-4": {
-      "Ows\\CommonMark\\": "src/"
+      "Ows\\CommonMark\\": "deprecated/",
+      "Ows\\CommonMarkSupSubExtensions\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Ows\\CommonMark\\Tests\\Functional\\": "tests/functional"
+      "Ows\\CommonMarkSupSubExtensions\\Tests\\Functional\\": "tests/functional"
     }
   },
   "require-dev": {

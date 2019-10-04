@@ -4,7 +4,7 @@
  * This file is part of the ows/commonmark-sup-sub-extensions package.
  */
 
-namespace Ows\CommonMark\Inline\Element;
+namespace Ows\CommonMarkSupSubExtensions\Inline\Element;
 
 use League\CommonMark\Inline\Element\AbstractInline;
 use League\CommonMark\Inline\Element\Text;
