@@ -16,7 +16,7 @@ use Ows\CommonMark\SupSubExtensions\Delimiter\Processor\SupDelimiterProcessor;
 use Ows\CommonMark\SupSubExtensions\Inline\Element\Sup;
 use Ows\CommonMark\SupSubExtensions\Inline\Renderer\SupRenderer;
 
-final class SupExtension implements ExtensionInterface
+class SupExtension implements ExtensionInterface
 {
 
   /**
