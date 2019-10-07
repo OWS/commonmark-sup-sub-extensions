@@ -2,7 +2,7 @@
 
 namespace Ows\CommonMark;
 
-use Ows\CommonMarkSupSubExtensions\SupExtension as BaseSupExtension;
+use Ows\CommonMark\SupSubExtensions\SupExtension as BaseSupExtension;
 
 final class SupExtension extends BaseSupExtension
 {

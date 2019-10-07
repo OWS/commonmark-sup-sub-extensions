@@ -4,7 +4,7 @@
  * This file is part of the ows/commonmark-sup-sub-extensions package.
  */
 
-namespace Ows\CommonMarkSupSubExtensions\Inline\Element;
+namespace Ows\CommonMark\SupSubExtensions\Inline\Element;
 
 class Sub extends BaseElement
 {

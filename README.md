@@ -19,8 +19,8 @@ $ composer require ows/commonmark-sup-sub-extensions
 
 ```php
 use League\CommonMark\Environment;
-use Ows\CommonMarkSupSubExtensions\SupExtension;
-use Ows\CommonMarkSupSubExtensions\SubExtension;
+use Ows\CommonMark\SupSubExtensions\SupExtension;
+use Ows\CommonMark\SupSubExtensions\SubExtension;
 
 $environment = Environment::createCommonMarkEnvironment();
 $environment->addExtension(new SupExtension());

@@ -4,12 +4,12 @@
  * This file is part of the ows/commonmark-sup-sub-extensions package.
  */
 
-namespace Ows\CommonMarkSupSubExtensions\Inline\Renderer;
+namespace Ows\CommonMark\SupSubExtensions\Inline\Renderer;
 
 class SupRenderer extends BaseRenderer
 {
 
   const TAG = 'sup';
-  protected $elementClass = '\Ows\CommonMarkSupSubExtensions\Inline\Element\Sup';
+  protected $elementClass = '\Ows\CommonMark\SupSubExtensions\Inline\Element\Sup';
 
 }

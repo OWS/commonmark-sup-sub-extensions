@@ -8,13 +8,13 @@
  * 10^2^ => 10<sup>2</sup>.
  */
 
-namespace Ows\CommonMarkSupSubExtensions;
+namespace Ows\CommonMark\SupSubExtensions;
 
 use League\CommonMark\ConfigurableEnvironmentInterface;
 use League\CommonMark\Extension\ExtensionInterface;
-use Ows\CommonMarkSupSubExtensions\Delimiter\Processor\SupDelimiterProcessor;
-use Ows\CommonMarkSupSubExtensions\Inline\Element\Sup;
-use Ows\CommonMarkSupSubExtensions\Inline\Renderer\SupRenderer;
+use Ows\CommonMark\SupSubExtensions\Delimiter\Processor\SupDelimiterProcessor;
+use Ows\CommonMark\SupSubExtensions\Inline\Element\Sup;
+use Ows\CommonMark\SupSubExtensions\Inline\Renderer\SupRenderer;
 
 final class SupExtension implements ExtensionInterface
 {
