@@ -8,15 +8,15 @@
  * 10~2~ => 10<sub>2</sub>.
  */
 
-namespace Ows\CommonMark;
+namespace Ows\CommonMark\SupSubExtensions;
 
 use League\CommonMark\ConfigurableEnvironmentInterface;
 use League\CommonMark\Extension\ExtensionInterface;
-use Ows\CommonMark\Delimiter\Processor\SubDelimiterProcessor;
-use Ows\CommonMark\Inline\Element\Sub;
-use Ows\CommonMark\Inline\Renderer\SubRenderer;
+use Ows\CommonMark\SupSubExtensions\Delimiter\Processor\SubDelimiterProcessor;
+use Ows\CommonMark\SupSubExtensions\Inline\Element\Sub;
+use Ows\CommonMark\SupSubExtensions\Inline\Renderer\SubRenderer;
 
-final class SubExtension implements ExtensionInterface
+class SubExtension implements ExtensionInterface
 {
 
   /**

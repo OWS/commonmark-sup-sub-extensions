@@ -1,11 +1,11 @@
 <?php
 
-namespace Ows\CommonMark\Tests\Functional;
+namespace Ows\CommonMark\SupSubExtensions\Tests\Functional;
 
 use League\CommonMark\CommonMarkConverter;
 use League\CommonMark\Environment;
-use Ows\CommonMark\SubExtension;
-use Ows\CommonMark\SupExtension;
+use Ows\CommonMark\SupSubExtensions\SubExtension;
+use Ows\CommonMark\SupSubExtensions\SupExtension;
 use PHPUnit\Framework\TestCase;
 
 /**
