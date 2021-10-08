@@ -15,4 +15,4 @@ before_install:
 
 script:
   - vendor/bin/phpstan analyze src tests
-  - vendor/bin/phpunit
+  - XDEBUG_MODE=coverage vendor/bin/phpunit
