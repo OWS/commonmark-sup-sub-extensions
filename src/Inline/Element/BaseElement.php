@@ -6,8 +6,8 @@
 
 namespace Ows\CommonMark\Inline\Element;
 
-use League\CommonMark\Inline\Element\AbstractInline;
-use League\CommonMark\Inline\Element\Text;
+use League\CommonMark\Node\Inline\AbstractInline;
+use League\CommonMark\Node\Inline\Text;
 
 abstract class BaseElement extends AbstractInline
 {
@@ -23,6 +23,7 @@ abstract class BaseElement extends AbstractInline
     if ($text) {
       $this->appendChild(new Text($text));
     }
+    parent::__construct($text);
   }
 
 }
