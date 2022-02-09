@@ -3,7 +3,8 @@
 namespace Ows\CommonMark\Tests\Functional;
 
 use League\CommonMark\CommonMarkConverter;
-use League\CommonMark\Environment;
+use League\CommonMark\Environment\Environment;
+use League\CommonMark\MarkdownConverter;
 use Ows\CommonMark\SubExtension;
 use Ows\CommonMark\SupExtension;
 use PHPUnit\Framework\TestCase;
@@ -21,7 +22,7 @@ class SupSubTest extends TestCase {
   public function testSup($markdown, $html) {
     $environment = Environment::createCommonMarkEnvironment();
     $environment->addExtension(new SupExtension());
-    $converter = new CommonMarkConverter([], $environment);
+    $converter = new MarkdownConverter($environment);
 
     $this->assertEquals($html, trim($converter->convertToHtml($markdown)));
   }
@@ -54,7 +55,7 @@ class SupSubTest extends TestCase {
   public function testSub($markdown, $html) {
     $environment = Environment::createCommonMarkEnvironment();
     $environment->addExtension(new SubExtension());
-    $converter = new CommonMarkConverter([], $environment);
+    $converter = new MarkdownConverter($environment);
 
     $this->assertEquals($html, trim($converter->convertToHtml($markdown)));
   }
