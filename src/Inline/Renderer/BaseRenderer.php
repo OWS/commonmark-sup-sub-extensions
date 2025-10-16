@@ -7,12 +7,13 @@
 namespace Ows\CommonMark\Inline\Renderer;
 
 use League\CommonMark\ElementRendererInterface;
-use League\CommonMark\HtmlElement;
-use League\CommonMark\Inline\Element\AbstractInline;
-use League\CommonMark\Inline\Renderer\InlineRendererInterface;
+use League\CommonMark\Node\Node;
+use League\CommonMark\Renderer\ChildNodeRendererInterface;
+use League\CommonMark\Renderer\NodeRendererInterface;
+use League\CommonMark\Util\HtmlElement;
 use League\CommonMark\Util\Xml;
 
-abstract class BaseRenderer implements InlineRendererInterface
+abstract class BaseRenderer implements NodeRendererInterface
 {
 
   /*
@@ -26,18 +27,15 @@ abstract class BaseRenderer implements InlineRendererInterface
   /**
    * {@inheritdoc}
    */
-  public function render(AbstractInline $inline, ElementRendererInterface $htmlRenderer)
+  public function render(Node $node, ChildNodeRendererInterface $childRenderer)
   {
-    if (!($inline instanceof $this->elementClass)) {
-      throw new \InvalidArgumentException('Incompatible inline type: ' . get_class($inline));
+    if (!($node instanceof $this->elementClass)) {
+      throw new \InvalidArgumentException('Incompatible node type: ' . get_class($node));
     }
 
-    $attrs = [];
-    foreach ($inline->getData('attributes', []) as $key => $value) {
-      $attrs[$key] = Xml::escape($value);
-    }
-
-    return new HtmlElement(static::TAG, $attrs, $htmlRenderer->renderInlines($inline->children()));
+    $attrs = $node->data->get('attributes');
+    $contents = $childRenderer->renderNodes($node->children());
+    return new HtmlElement(static::TAG, $attrs, $contents);
   }
 
 }

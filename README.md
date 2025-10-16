@@ -6,7 +6,8 @@ This library adds support of superscript and subscript (`<sup>` and `<sub>` HTML
 
 ## Versions compatibility
 
-* 2.x is compatible with league/commonmark 1.x (*recommended version*)
+* 3.x is compatible with league/commonmark 2.x (*recommended version*)
+* 2.x is compatible with league/commonmark 1.x
 * 1.x is compatible with league/commonmark 0.17.x and 0.18.x and will no longer be supported
 
 ## Installation
@@ -20,7 +21,7 @@ $ composer require ows/commonmark-sup-sub-extensions
 ## Usage
 
 ```php
-use League\CommonMark\Environment;
+use League\CommonMark\Environment\Environment;
 use Ows\CommonMark\SupExtension;
 use Ows\CommonMark\SubExtension;
 
