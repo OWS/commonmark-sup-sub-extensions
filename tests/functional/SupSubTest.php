@@ -15,22 +15,18 @@ use PHPUnit\Framework\TestCase;
 class SupSubTest extends TestCase {
 
   /**
-   * Test Sup extension.
-   *
-   * @dataProvider supMarkupProvider
+   * Provides test data for the sub test.
    */
-  public function testSup($markdown, $html) {
-    $environment = Environment::createCommonMarkEnvironment();
-    $environment->addExtension(new SupExtension());
-    $converter = new MarkdownConverter($environment);
-
-    $this->assertEquals($html, trim($converter->convertToHtml($markdown)));
+  public function subMarkupProvider(): array {
+    return [
+      ['10~2~', '<p>10<sub>2</sub></p>'],
+    ];
   }
 
   /**
    * Provides test data for the sup test.
    */
-  public function supMarkupProvider() {
+  public function supMarkupProvider(): array {
     return [
       // Check standard operation.
       ['10^2^', '<p>10<sup>2</sup></p>'],
@@ -52,7 +48,7 @@ class SupSubTest extends TestCase {
    *
    * @dataProvider subMarkupProvider
    */
-  public function testSub($markdown, $html) {
+  public function testSub(string $markdown, string $html): void {
     $environment = Environment::createCommonMarkEnvironment();
     $environment->addExtension(new SubExtension());
     $converter = new MarkdownConverter($environment);
@@ -61,12 +57,16 @@ class SupSubTest extends TestCase {
   }
 
   /**
-   * Provides test data for the sub test.
+   * Test Sup extension.
+   *
+   * @dataProvider supMarkupProvider
    */
-  public function subMarkupProvider() {
-    return [
-      ['10~2~', '<p>10<sub>2</sub></p>'],
-    ];
+  public function testSup(string $markdown, string $html): void {
+    $environment = Environment::createCommonMarkEnvironment();
+    $environment->addExtension(new SupExtension());
+    $converter = new MarkdownConverter($environment);
+
+    $this->assertEquals($html, trim($converter->convertToHtml($markdown)));
   }
 
 }

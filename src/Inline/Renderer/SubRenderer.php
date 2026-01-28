@@ -9,7 +9,7 @@ namespace Ows\CommonMark\Inline\Renderer;
 class SubRenderer extends BaseRenderer
 {
 
-  const TAG = 'sub';
-  protected $elementClass = '\Ows\CommonMark\Inline\Element\Sub';
+  public const string TAG = 'sub';
+  protected string $elementClass = '\Ows\CommonMark\Inline\Element\Sub';
 
 }

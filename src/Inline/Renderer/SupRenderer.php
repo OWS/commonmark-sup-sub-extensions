@@ -9,7 +9,7 @@ namespace Ows\CommonMark\Inline\Renderer;
 class SupRenderer extends BaseRenderer
 {
 
-  const TAG = 'sup';
-  protected $elementClass = '\Ows\CommonMark\Inline\Element\Sup';
+  public const string TAG = 'sup';
+  protected string $elementClass = '\Ows\CommonMark\Inline\Element\Sup';
 
 }

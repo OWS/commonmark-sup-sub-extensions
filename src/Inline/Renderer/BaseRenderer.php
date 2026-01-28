@@ -21,8 +21,8 @@ abstract class BaseRenderer implements NodeRendererInterface
    * - const TAG,
    * - property $elementClass.
    */
-  const TAG = 'span';
-  protected $elementClass = '\stdClass';
+  public const string TAG = 'span';
+  protected string $elementClass = '\stdClass';
 
   /**
    * {@inheritdoc}
