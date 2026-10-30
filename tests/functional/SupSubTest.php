@@ -17,7 +17,7 @@ class SupSubTest extends TestCase {
   /**
    * Provides test data for the sub test.
    */
-  public function subMarkupProvider(): array {
+  public static function subMarkupProvider(): array {
     return [
       ['10~2~', '<p>10<sub>2</sub></p>'],
     ];
@@ -26,7 +26,7 @@ class SupSubTest extends TestCase {
   /**
    * Provides test data for the sup test.
    */
-  public function supMarkupProvider(): array {
+  public static function supMarkupProvider(): array {
     return [
       // Check standard operation.
       ['10^2^', '<p>10<sup>2</sup></p>'],
@@ -53,7 +53,7 @@ class SupSubTest extends TestCase {
     $environment->addExtension(new SubExtension());
     $converter = new MarkdownConverter($environment);
 
-    $this->assertEquals($html, trim($converter->convertToHtml($markdown)));
+    $this->assertEquals($html, trim($converter->convert($markdown)));
   }
 
   /**
@@ -66,7 +66,7 @@ class SupSubTest extends TestCase {
     $environment->addExtension(new SupExtension());
     $converter = new MarkdownConverter($environment);
 
-    $this->assertEquals($html, trim($converter->convertToHtml($markdown)));
+    $this->assertEquals($html, trim($converter->convert($markdown)));
   }
 
 }
