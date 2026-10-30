@@ -3,11 +3,13 @@
 namespace Ows\CommonMark\SupSubExtension\Delimiter\Processor;
 
 use League\CommonMark\Delimiter\DelimiterInterface;
-use League\CommonMark\Delimiter\Processor\DelimiterProcessorInterface;
+use League\CommonMark\Delimiter\Processor\CacheableDelimiterProcessorInterface;
 use League\CommonMark\Node\Inline\AbstractStringContainer;
+use League\CommonMark\Node\Inline\Newline;
+use League\CommonMark\Node\Inline\Text;
 
 
-class BaseDelimiterProcessor implements DelimiterProcessorInterface
+class BaseDelimiterProcessor implements CacheableDelimiterProcessorInterface
 {
   /** @var string */
   private $delimiter;
@@ -58,7 +60,22 @@ class BaseDelimiterProcessor implements DelimiterProcessorInterface
    */
   public function getDelimiterUse(DelimiterInterface $opener, DelimiterInterface $closer): int
   {
+    $closerNode = $closer->getInlineNode();
+    for ($node = $opener->getInlineNode()->next(); $node !== null && $node !== $closerNode; $node = $node->next()) {
+      if ($node instanceof Newline || ($node instanceof Text && strpbrk($node->getLiteral(), " \t") !== false)) {
+        return 0;
+      }
+    }
+
     return 1;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getCacheKey(DelimiterInterface $closer): string
+  {
+    return $this->delimiter;
   }
 
   /**

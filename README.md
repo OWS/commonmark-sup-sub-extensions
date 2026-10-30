@@ -53,3 +53,5 @@ Result:
 10<sup>2</sup>
 10<sub>2</sub>
 ```
+
+As in [Pandoc](https://pandoc.org/MANUAL.html#superscripts-and-subscripts), spaces are not allowed between delimiters: use `&nbsp;` instead (`P~a&nbsp;cat~`). Spaces inside nested elements are allowed (`^[a link](https://example.com)^`).
