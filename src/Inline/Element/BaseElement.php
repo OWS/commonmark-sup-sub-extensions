@@ -20,10 +20,10 @@ abstract class BaseElement extends AbstractInline
    */
   public function __construct($text = NULL)
   {
-    if ($text) {
+    parent::__construct();
+    if ($text !== NULL) {
       $this->appendChild(new Text($text));
     }
-    parent::__construct($text);
   }
 
 }

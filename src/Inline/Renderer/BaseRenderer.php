@@ -31,7 +31,8 @@ abstract class BaseRenderer implements NodeRendererInterface
       throw new \InvalidArgumentException('Incompatible node type: ' . get_class($node));
     }
 
-    $attrs = $node->data->get('attributes');
+    /** @var array<string, array<string>|bool|string> $attrs */
+    $attrs = $node->data->get('attributes') ?: [];
     $contents = $childRenderer->renderNodes($node->children());
     return new HtmlElement(static::TAG, $attrs, $contents);
   }

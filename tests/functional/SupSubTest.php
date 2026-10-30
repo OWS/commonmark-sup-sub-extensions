@@ -16,6 +16,8 @@ class SupSubTest extends TestCase {
 
   /**
    * Provides test data for the sub test.
+   *
+   * @return array<array-key, array{string, string}>
    */
   public static function subMarkupProvider(): array {
     return [
@@ -25,6 +27,8 @@ class SupSubTest extends TestCase {
 
   /**
    * Provides test data for the sup test.
+   *
+   * @return array<array-key, array{string, string}>
    */
   public static function supMarkupProvider(): array {
     return [

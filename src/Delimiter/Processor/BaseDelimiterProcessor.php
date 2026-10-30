@@ -5,20 +5,15 @@ namespace Ows\CommonMark\Delimiter\Processor;
 use League\CommonMark\Delimiter\DelimiterInterface;
 use League\CommonMark\Delimiter\Processor\DelimiterProcessorInterface;
 use League\CommonMark\Node\Inline\AbstractStringContainer;
-use League\Config\ConfigurationAwareInterface;
-use League\Config\ConfigurationInterface;
 
 
-class BaseDelimiterProcessor implements DelimiterProcessorInterface, ConfigurationAwareInterface
+class BaseDelimiterProcessor implements DelimiterProcessorInterface
 {
   /** @var string */
   private $delimiter;
 
   /** @var string */
   private $elementClass;
-
-  /** @var ConfigurationInterface|null */
-  private $config;
 
   /**
    * Construct a new base parser.
@@ -71,6 +66,7 @@ class BaseDelimiterProcessor implements DelimiterProcessorInterface, Configurati
    */
   public function process(AbstractStringContainer $opener, AbstractStringContainer $closer, int $delimiterUse): void
   {
+    /** @var \League\CommonMark\Node\Node $element */
     $element = new $this->elementClass();
 
     $next = $opener->next();
@@ -81,13 +77,5 @@ class BaseDelimiterProcessor implements DelimiterProcessorInterface, Configurati
     }
 
     $opener->insertAfter($element);
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setConfiguration(ConfigurationInterface $configuration): void
-  {
-    $this->config = $configuration;
   }
 }
