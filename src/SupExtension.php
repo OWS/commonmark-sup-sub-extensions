@@ -2,20 +2,16 @@
 
 /*
  * This file is part of the ows/commonmark-sup-sub-extensions package.
- *
- * Add superscript (<sup> tag) to league/commonmark.
- *
- * 10^2^ => 10<sup>2</sup>.
  */
 
 namespace Ows\CommonMark;
 
 use League\CommonMark\Environment\EnvironmentBuilderInterface;
 use League\CommonMark\Extension\ExtensionInterface;
-use Ows\CommonMark\Delimiter\Processor\SupDelimiterProcessor;
-use Ows\CommonMark\Inline\Element\Sup;
-use Ows\CommonMark\Inline\Renderer\SupRenderer;
 
+/**
+ * @deprecated in 3.0.0, will be removed in 4.0.0. Use \Ows\CommonMark\SupSubExtension\SupExtension instead.
+ */
 final class SupExtension implements ExtensionInterface
 {
 
@@ -24,14 +20,8 @@ final class SupExtension implements ExtensionInterface
    */
   public function register(EnvironmentBuilderInterface $environment): void
   {
-    $environment
-      ->addDelimiterProcessor(new SupDelimiterProcessor())
-      ->addRenderer(
-        Sup::class,
-        new SupRenderer()
-      )
-    ;
+    @trigger_error(__CLASS__ . ' is deprecated in 3.0.0, use ' . SupSubExtension\SupExtension::class . ' instead.', E_USER_DEPRECATED);
+    (new SupSubExtension\SupExtension())->register($environment);
   }
 
 }
-

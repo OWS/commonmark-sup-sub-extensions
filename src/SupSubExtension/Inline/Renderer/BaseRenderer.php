@@ -4,7 +4,7 @@
  * This file is part of the ows/commonmark-sup-sub-extensions package.
  */
 
-namespace Ows\CommonMark\Inline\Renderer;
+namespace Ows\CommonMark\SupSubExtension\Inline\Renderer;
 
 use League\CommonMark\Node\Node;
 use League\CommonMark\Renderer\ChildNodeRendererInterface;

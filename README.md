@@ -24,8 +24,8 @@ $ composer require ows/commonmark-sup-sub-extensions
 use League\CommonMark\Environment\Environment;
 use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
 use League\CommonMark\MarkdownConverter;
-use Ows\CommonMark\SupExtension;
-use Ows\CommonMark\SubExtension;
+use Ows\CommonMark\SupSubExtension\SupExtension;
+use Ows\CommonMark\SupSubExtension\SubExtension;
 
 $environment = new Environment();
 $environment->addExtension(new CommonMarkCoreExtension());

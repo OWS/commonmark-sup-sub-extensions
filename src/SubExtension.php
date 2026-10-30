@@ -2,20 +2,16 @@
 
 /*
  * This file is part of the ows/commonmark-sup-sub-extensions package.
- *
- * Add subscript (<sub> tag) to league/commonmark.
- *
- * 10~2~ => 10<sub>2</sub>.
  */
 
 namespace Ows\CommonMark;
 
 use League\CommonMark\Environment\EnvironmentBuilderInterface;
 use League\CommonMark\Extension\ExtensionInterface;
-use Ows\CommonMark\Delimiter\Processor\SubDelimiterProcessor;
-use Ows\CommonMark\Inline\Element\Sub;
-use Ows\CommonMark\Inline\Renderer\SubRenderer;
 
+/**
+ * @deprecated in 3.0.0, will be removed in 4.0.0. Use \Ows\CommonMark\SupSubExtension\SubExtension instead.
+ */
 final class SubExtension implements ExtensionInterface
 {
 
@@ -24,14 +20,8 @@ final class SubExtension implements ExtensionInterface
    */
   public function register(EnvironmentBuilderInterface $environment): void
   {
-    $environment
-      ->addDelimiterProcessor(new SubDelimiterProcessor())
-      ->addRenderer(
-        Sub::class,
-        new SubRenderer()
-      )
-    ;
+    @trigger_error(__CLASS__ . ' is deprecated in 3.0.0, use ' . SupSubExtension\SubExtension::class . ' instead.', E_USER_DEPRECATED);
+    (new SupSubExtension\SubExtension())->register($environment);
   }
 
 }
-

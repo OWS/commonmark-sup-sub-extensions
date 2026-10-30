@@ -1,8 +1,8 @@
 <?php
 
-namespace Ows\CommonMark\Delimiter\Processor;
+namespace Ows\CommonMark\SupSubExtension\Delimiter\Processor;
 
-use Ows\CommonMark\Inline\Element\Sub;
+use Ows\CommonMark\SupSubExtension\Inline\Element\Sub;
 
 class SubDelimiterProcessor extends BaseDelimiterProcessor {
 

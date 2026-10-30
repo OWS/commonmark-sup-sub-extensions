@@ -5,8 +5,8 @@ namespace Ows\CommonMark\Tests\Functional;
 use League\CommonMark\CommonMarkConverter;
 use League\CommonMark\Environment\Environment;
 use League\CommonMark\MarkdownConverter;
-use Ows\CommonMark\SubExtension;
-use Ows\CommonMark\SupExtension;
+use Ows\CommonMark\SupSubExtension\SubExtension;
+use Ows\CommonMark\SupSubExtension\SupExtension;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -71,6 +71,18 @@ class SupSubTest extends TestCase {
     $converter = new MarkdownConverter($environment);
 
     $this->assertEquals($html, trim($converter->convert($markdown)));
+  }
+
+  /**
+   * Test deprecated extensions still work.
+   */
+  public function testDeprecatedExtensions(): void {
+    $environment = Environment::createCommonMarkEnvironment();
+    $environment->addExtension(new \Ows\CommonMark\SupExtension());
+    $environment->addExtension(new \Ows\CommonMark\SubExtension());
+    $converter = new MarkdownConverter($environment);
+
+    $this->assertEquals('<p>10<sup>2</sup> H<sub>2</sub>O</p>', trim($converter->convert('10^2^ H~2~O')));
   }
 
 }

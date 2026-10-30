@@ -1,6 +1,6 @@
 <?php
 
-namespace Ows\CommonMark\Delimiter\Processor;
+namespace Ows\CommonMark\SupSubExtension\Delimiter\Processor;
 
 use League\CommonMark\Delimiter\DelimiterInterface;
 use League\CommonMark\Delimiter\Processor\DelimiterProcessorInterface;
