@@ -2,9 +2,17 @@
   "name": "ows/commonmark-sup-sub-extensions",
   "type": "commonmark-extension",
   "description": "A sup/sub extension for CommonMark PHP implementation",
-  "keywords": ["markdown","parser","commonmark"],
+  "keywords": [
+    "markdown",
+    "parser",
+    "commonmark"
+  ],
   "homepage": "https://github.com/ows/commonmark-sup-sub-extensions",
   "license": "GPL-2.0-or-later",
+  "support": {
+    "issues": "https://github.com/OWS/commonmark-sup-sub-extensions/issues",
+    "source": "https://github.com/OWS/commonmark-sup-sub-extensions"
+  },
   "autoload": {
     "psr-4": {
       "Ows\\CommonMark\\": "src/"
@@ -23,5 +31,11 @@
     "phpunit/phpunit": "^10.5.64",
     "phpstan/phpstan": "^2.2.15",
     "friendsofphp/php-cs-fixer": "^3.95"
+  },
+  "scripts": {
+    "test": "phpunit",
+    "analyse": "phpstan analyse --no-progress",
+    "cs": "php-cs-fixer fix --dry-run --diff",
+    "cs-fix": "php-cs-fixer fix"
   }
 }

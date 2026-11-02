@@ -1,6 +1,6 @@
 # ows/commonmark-sup-sub-extensions
 
-[![Build Status](https://app.travis-ci.com/OWS/commonmark-sup-sub-extensions.svg?branch=3.x)](https://app.travis-ci.com/OWS/commonmark-sup-sub-extensions)
+[![CI](https://github.com/OWS/commonmark-sup-sub-extensions/actions/workflows/ci.yml/badge.svg?branch=3.x)](https://github.com/OWS/commonmark-sup-sub-extensions/actions/workflows/ci.yml)
 
 This library adds support of superscript and subscript (`<sup>` and `<sub>` HTML tags) to [league/commonmark](https://github.com/thephpleague/commonmark).
 
