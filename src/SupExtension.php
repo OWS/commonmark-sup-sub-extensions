@@ -14,14 +14,12 @@ use League\CommonMark\Extension\ExtensionInterface;
  */
 final class SupExtension implements ExtensionInterface
 {
-
-  /**
-   * {@inheritdoc}
-   */
-  public function register(EnvironmentBuilderInterface $environment): void
-  {
-    @trigger_error(__CLASS__ . ' is deprecated in 3.0.0, use ' . SupSubExtension\SupExtension::class . ' instead.', E_USER_DEPRECATED);
-    (new SupSubExtension\SupExtension())->register($environment);
-  }
-
+    /**
+     * {@inheritdoc}
+     */
+    public function register(EnvironmentBuilderInterface $environment): void
+    {
+        @trigger_error(__CLASS__ . ' is deprecated in 3.0.0, use ' . SupSubExtension\SupExtension::class . ' instead.', E_USER_DEPRECATED);
+        (new SupSubExtension\SupExtension())->register($environment);
+    }
 }

@@ -13,28 +13,26 @@ use League\CommonMark\Util\HtmlElement;
 
 abstract class BaseRenderer implements NodeRendererInterface
 {
+    /*
+     * These elements must be overriden by extending classes:
+     * - const TAG,
+     * - property $elementClass.
+     */
+    public const string TAG = 'span';
+    protected string $elementClass = '\stdClass';
 
-  /*
-   * These elements must be overriden by extending classes:
-   * - const TAG,
-   * - property $elementClass.
-   */
-  public const string TAG = 'span';
-  protected string $elementClass = '\stdClass';
+    /**
+     * {@inheritdoc}
+     */
+    public function render(Node $node, ChildNodeRendererInterface $childRenderer)
+    {
+        if (!($node instanceof $this->elementClass)) {
+            throw new \InvalidArgumentException('Incompatible node type: ' . get_class($node));
+        }
 
-  /**
-   * {@inheritdoc}
-   */
-  public function render(Node $node, ChildNodeRendererInterface $childRenderer)
-  {
-    if (!($node instanceof $this->elementClass)) {
-      throw new \InvalidArgumentException('Incompatible node type: ' . get_class($node));
+        /** @var array<string, array<string>|bool|string> $attrs */
+        $attrs = $node->data->get('attributes') ?: [];
+        $contents = $childRenderer->renderNodes($node->children());
+        return new HtmlElement(static::TAG, $attrs, $contents);
     }
-
-    /** @var array<string, array<string>|bool|string> $attrs */
-    $attrs = $node->data->get('attributes') ?: [];
-    $contents = $childRenderer->renderNodes($node->children());
-    return new HtmlElement(static::TAG, $attrs, $contents);
-  }
-
 }

@@ -18,20 +18,17 @@ use Ows\CommonMark\SupSubExtension\Inline\Renderer\SubRenderer;
 
 final class SubExtension implements ExtensionInterface
 {
-
-  /**
-   * {@inheritdoc}
-   */
-  public function register(EnvironmentBuilderInterface $environment): void
-  {
-    $environment
-      ->addDelimiterProcessor(new SubDelimiterProcessor())
-      ->addRenderer(
-        Sub::class,
-        new SubRenderer()
-      )
-    ;
-  }
-
+    /**
+     * {@inheritdoc}
+     */
+    public function register(EnvironmentBuilderInterface $environment): void
+    {
+        $environment
+            ->addDelimiterProcessor(new SubDelimiterProcessor())
+            ->addRenderer(
+                Sub::class,
+                new SubRenderer()
+            )
+        ;
+    }
 }
-

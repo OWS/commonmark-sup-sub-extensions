@@ -6,3 +6,5 @@ phpstan.neon
 phpunit.xml
 .phpunit.result.cache
 .phpunit.cache/
+.php-cs-fixer.php
+.php-cs-fixer.cache

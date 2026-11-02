@@ -8,8 +8,6 @@ namespace Ows\CommonMark\SupSubExtension\Inline\Renderer;
 
 class SupRenderer extends BaseRenderer
 {
-
-  public const string TAG = 'sup';
-  protected string $elementClass = '\Ows\CommonMark\SupSubExtension\Inline\Element\Sup';
-
+    public const string TAG = 'sup';
+    protected string $elementClass = '\Ows\CommonMark\SupSubExtension\Inline\Element\Sup';
 }

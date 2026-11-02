@@ -18,20 +18,17 @@ use Ows\CommonMark\SupSubExtension\Inline\Renderer\SupRenderer;
 
 final class SupExtension implements ExtensionInterface
 {
-
-  /**
-   * {@inheritdoc}
-   */
-  public function register(EnvironmentBuilderInterface $environment): void
-  {
-    $environment
-      ->addDelimiterProcessor(new SupDelimiterProcessor())
-      ->addRenderer(
-        Sup::class,
-        new SupRenderer()
-      )
-    ;
-  }
-
+    /**
+     * {@inheritdoc}
+     */
+    public function register(EnvironmentBuilderInterface $environment): void
+    {
+        $environment
+            ->addDelimiterProcessor(new SupDelimiterProcessor())
+            ->addRenderer(
+                Sup::class,
+                new SupRenderer()
+            )
+        ;
+    }
 }
-

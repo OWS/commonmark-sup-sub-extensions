@@ -11,19 +11,17 @@ use League\CommonMark\Node\Inline\Text;
 
 abstract class BaseElement extends AbstractInline
 {
-
-  /**
-   * Base constructor for sub and sup elements.
-   *
-   * @param string $text
-   *   Text to put in element.
-   */
-  public function __construct($text = NULL)
-  {
-    parent::__construct();
-    if ($text !== NULL) {
-      $this->appendChild(new Text($text));
+    /**
+     * Base constructor for sub and sup elements.
+     *
+     * @param string $text
+     *   Text to put in element.
+     */
+    public function __construct($text = null)
+    {
+        parent::__construct();
+        if ($text !== null) {
+            $this->appendChild(new Text($text));
+        }
     }
-  }
-
 }
